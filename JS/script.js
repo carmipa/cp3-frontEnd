@@ -2,19 +2,19 @@
 function loadUsers() {
     let users = localStorage.getItem('users');
     return users ? JSON.parse(users) : [];
-}
+};
 
 // Função para salvar os usuários no localStorage
 function saveUsers(users) {
     localStorage.setItem('users', JSON.stringify(users));
-}
+};
 
 // Função para remover o usuário logado do localStorage
 function logout() {
     localStorage.removeItem('loggedInUser');
     
     window.location.href = '../index.html'; // Redireciona para a página de login
-}
+};
 
 // Cadastro de usuários
 const registerForm = document.getElementById('registerForm');
@@ -56,7 +56,7 @@ if (registerForm) {
             window.location.href = '../index.html';
         }, 2000);
     });
-}
+};
 
 // Login de usuários
 const loginForm = document.getElementById('loginForm');
@@ -92,7 +92,7 @@ if (loginForm) {
             successMessage.style.display = 'none';
         }
     });
-}
+};
 
 // Logout do usuário
 const logoutButton = document.getElementById('logout-button');
@@ -101,7 +101,7 @@ if (logoutButton) {
         logout();
         
     });
-}
+};
 
 // Exibir informações do usuário logado na página específica
 function displayUserInfo() {
@@ -114,8 +114,8 @@ function displayUserInfo() {
         // Se não houver usuário logado, redireciona para a página de login
         window.location.href = '../index.html';
     }
-}
+};
 
 if (document.getElementById('user-info')) {
     displayUserInfo();
-}
+};
