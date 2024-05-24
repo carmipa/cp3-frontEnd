@@ -13,46 +13,57 @@ body {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 30%;
+    max-width: 400px; /* Define um limite máximo de largura para o container */
 }
 
 h1 {
     text-align: center;
     margin-bottom: 20px;
+    color: #333;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
+.form-group {
+    margin-bottom: 15px;
 }
 
 label {
+    display: block;
     margin-bottom: 5px;
+    font-weight: bold;
 }
 
-input {
+.input-field {
     padding: 10px;
-    margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 3px;
+    width: 100%;
 }
 
-button {
+.button-login {
     padding: 10px 20px;
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 3px;
     cursor: pointer;
-  
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
-#error-message, #success-message {
+.button-login:hover {
+    background-color: #45a049;
+}
+
+.error-message, .success-message {
     margin-top: 10px;
-    color: red;
     text-align: center;
 }
 
-#success-message {
+.error-message {
+    color: red;
+}
+
+.success-message {
     color: green;
 }
 
@@ -78,4 +89,11 @@ button {
 #fCadastro:hover{
     text-decoration: none;
     color: blue;
+}
+
+/* Responsividade (Exemplo de media query) */
+@media (max-width: 450px) {
+    .container {
+        width: 90%;
+    }
 }

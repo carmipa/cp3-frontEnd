@@ -1,22 +1,26 @@
-// Função para carregar os usuários do localStorage
+
 function loadUsers() {
     let users = localStorage.getItem('users');
     return users ? JSON.parse(users) : [];
 };
 
-// Função para salvar os usuários no localStorage
+
 function saveUsers(users) {
     localStorage.setItem('users', JSON.stringify(users));
 };
 
-// Função para remover o usuário logado do localStorage
+
 function logout() {
     localStorage.removeItem('loggedInUser');
-    
-    window.location.href = '../index.html'; // Redireciona para a página de login
+    window.location.href = '../index.html'; 
 };
 
-// Cadastro de usuários
+
+function redirectToPOS() {
+    window.location.href = '../POS.html'; 
+}
+
+
 const registerForm = document.getElementById('registerForm');
 if (registerForm) {
     registerForm.addEventListener('submit', function(event) {
@@ -44,17 +48,16 @@ if (registerForm) {
             return;
         }
 
-        // Adicionar o novo usuário à lista de usuários
+
         users.push({ name: name, email: email, password: password });
         saveUsers(users);
 
-        // Exibir mensagem de sucesso e redirecionar para a página de login
-        successMessage.textContent = 'Cadastro realizado com sucesso! Redirecionando para a página de login...';
+
+        successMessage.textContent = 'Cadastro realizado com sucesso! Redirecionando para a página POS...';
         successMessage.style.display = 'block';
 
-        setTimeout(function() {
-            window.location.href = '../index.html';
-        }, 2000);
+
+        setTimeout(redirectToPOS, 2000);
     });
 };
 
@@ -62,7 +65,7 @@ if (registerForm) {
 const loginForm = document.getElementById('loginForm');
 if (loginForm) {
     loginForm.addEventListener('submit', function (event) {
-        event.preventDefault(); // Previne o comportamento padrão do formulário
+        event.preventDefault(); 
 
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
@@ -73,20 +76,20 @@ if (loginForm) {
         const user = users.find(user => user.email === email && user.password === password);
 
         if (user) {
-            // Login bem-sucedido
+        
             successMessage.textContent = 'Login efetuado com sucesso!';
             successMessage.style.display = 'block';
             errorMessage.style.display = 'none';
 
-            // Salvar o usuário logado no localStorage
+            
             localStorage.setItem('loggedInUser', JSON.stringify(user));
 
-            // Após 5 segundos, redireciona para a página específica
+            
             setTimeout(function () {
-                window.location.href = '../paginas/POS.html'; // Substitua pelo URL da sua página específica
+                window.location.href = '../POS.html'; 
             }, 5000);
         } else {
-            // Login falhou
+            
             errorMessage.textContent = 'Email ou senha incorretos!';
             errorMessage.style.display = 'block';
             successMessage.style.display = 'none';
@@ -94,16 +97,15 @@ if (loginForm) {
     });
 };
 
-// Logout do usuário
+
 const logoutButton = document.getElementById('logout-button');
 if (logoutButton) {
     logoutButton.addEventListener('click', function() {
         logout();
-        
     });
 };
 
-// Exibir informações do usuário logado na página específica
+
 function displayUserInfo() {
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
@@ -111,7 +113,7 @@ function displayUserInfo() {
         document.getElementById('email-info').textContent = `Email: ${loggedInUser.email}`;
         document.getElementById('name-info').textContent = `Nome: ${loggedInUser.name}`;
     } else {
-        // Se não houver usuário logado, redireciona para a página de login
+        
         window.location.href = '../index.html';
     }
 };

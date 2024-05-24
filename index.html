@@ -4,25 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOGIN - CP3 - TDSPV / TDSPZ - PAULO / ARTHUR / JOÃO PAULO / JOÃO PEDRO</title>
+    <link rel="icon" type="image/x-icon" href="./IMG/c24c8313-f335-4f8a-8617-252b891097f3.ico">
     <link rel="stylesheet" href="./CSS/style.css">
 </head>
 <body>
     <div class="container">
         <h1>Login</h1>
         <form id="loginForm">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="email@email.com.br" required>
-
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" placeholder="************" required>
-
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="email@email.com.br" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" placeholder="************" required>
+            </div>
             <button type="submit">Entrar</button>
-            <p id="error-message" class="error-message"></p>
-            <p id="success-message" class="success-message"></p>
+            <div class="error-message"></div>
+            <div class="success-message"></div>
             <a href="./paginas/cadastro.html" id="fCadastro">Ainda não se cadastrou? Cadastre-se aqui!</a>
         </form>
     </div>
 
-    <script src="../JS/script.js"></script>
+    <script src="./JS/script.js"></script>
 </body>
 </html>
