@@ -12,12 +12,12 @@ function saveUsers(users) {
 
 function logout() {
     localStorage.removeItem('loggedInUser');
-    window.location.href = '../index.html'; 
+    window.location.href = './index.html'; 
 };
 
 
-function redirectToPOS() {
-    window.location.href = '../POS.html'; 
+function redirectToLogin() { 
+    window.location.href = './index.html'; 
 }
 
 
@@ -53,15 +53,15 @@ if (registerForm) {
         saveUsers(users);
 
 
-        successMessage.textContent = 'Cadastro realizado com sucesso! Redirecionando para a página POS...';
+        successMessage.textContent = 'Cadastro realizado com sucesso! Redirecionando para a página de login...';
         successMessage.style.display = 'block';
 
 
-        setTimeout(redirectToPOS, 2000);
+        setTimeout(redirectToLogin, 2000); 
     });
 };
 
-// Login de usuários
+
 const loginForm = document.getElementById('loginForm');
 if (loginForm) {
     loginForm.addEventListener('submit', function (event) {
@@ -114,7 +114,7 @@ function displayUserInfo() {
         document.getElementById('name-info').textContent = `Nome: ${loggedInUser.name}`;
     } else {
         
-        window.location.href = '../index.html';
+        window.location.href = './index.html'; 
     }
 };
 
