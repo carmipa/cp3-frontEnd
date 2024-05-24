@@ -53,7 +53,7 @@ if (registerForm) {
         successMessage.style.display = 'block';
 
         setTimeout(function() {
-            window.location.href = '../paginas/login.html';
+            window.location.href = '../index.html';
         }, 2000);
     });
 }
